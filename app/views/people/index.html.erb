@@ -1,0 +1,41 @@
+<h1>Listing people</h1>
+<p id="notice"><%= notice %></p>
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Age</th>
+      <th>Birth date</th>
+      <th>City</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @people.each do |person| %>
+      <tr>
+        <td><%= best_in_place person, :first_name, :type => :input, :nil => "Not First name" %></td>
+        <td><%= person.last_name %></td>
+        <td><%= person.age %></td>
+        <td>
+          <%#= person.birth_date %>
+          <%= best_in_place person, :birth_date, :type => :date %>
+        </td>
+        <td><%#= person.city %>
+        <%= best_in_place person, :city, :type => :select, :collection => [[1, "Spain"], [2, "Italy"],
+[3, "Germany"], [4, "France"]] %>
+        </td>
+        <td><%= best_in_place person, :description, :nil => "...", :type => :textarea %></td>
+        <td><%= link_to 'Show', person %></td>
+        <td><%= link_to 'Edit', edit_person_path(person) %></td>
+        <td><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Person', new_person_path %>

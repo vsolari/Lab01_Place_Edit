@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+<div id="user_account">
+  <p>
+    <strong>First name:</strong>
+    <%#= @person.first_name %>
+    <%= best_in_place @person, :first_name, :type => :input, :activator => false%>
+  </p>
+
+  <p>
+    <strong>Last name:</strong>
+    <%#= @person.last_name %>
+    <%= best_in_place @person, :last_name, :type => :input%>
+  </p>
+
+  <p>
+    <strong>Age:</strong>
+    <%#= @person.age %>
+    <%= best_in_place @person, :age, :type => :input%>
+  </p>
+
+  <p>
+    <strong>Birth date:</strong>
+    <%#= @person.birth_date %>
+    <%= best_in_place @person, :birth_date, :type => :date %>
+  </p>
+
+  <p>
+    <strong>City:</strong>
+    <%#= @person.city %>
+    <%= best_in_place @person, :city, :type => :select, :collection => [[1, "Spain"], [2, "Italy"],
+  [3, "Germany"], [4, "France"]] %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%#= @person.description %>
+    <%= best_in_place @person, :description, :nil => "...", :type => :textarea %>
+  </p>
+</div>
+<%= link_to 'Edit', edit_person_path(@person) %> |
+<%= link_to 'Back', people_path %>
